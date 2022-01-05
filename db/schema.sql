@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS license_db;
+
+CREATE DATABASE license_db;
