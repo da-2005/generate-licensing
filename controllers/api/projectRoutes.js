@@ -34,10 +34,9 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-router.get('/projects/:id', async (req, res) => {
-    try {
-        const projectID = await Project.findByPk(req.params.projectID)
-    }
-})
-
+// router.get('/projects/:id', async (req, res) => {
+//     try{
+//         const projectID = await Project.findByPk(req.params.id)
+//     }
+// })
 module.exports = router;

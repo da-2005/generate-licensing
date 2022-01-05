@@ -4,7 +4,7 @@ require('dotenv').config();
 let sequelize;
 
 sequelize = new Sequelize(
-    "licensing_db",
+    process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
