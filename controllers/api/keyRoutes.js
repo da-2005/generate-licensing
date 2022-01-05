@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const { Keys } = require('../../models');
+const { Key } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        const newKey = await Keys.create({
-            
-        });
+        const newKey = await Key.create(req.body);
+
+        // req.session.save(() => {
+        //     req.session.key = newKey.project_id
+        // })
 
         res.status(200).json(newKey)
     } catch (err) {
@@ -13,7 +15,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete()
+
 
 
 module.exports = router;

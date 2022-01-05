@@ -13,7 +13,7 @@ Key.init(
             primaryKey: true,
         },
         project_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'project',
