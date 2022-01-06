@@ -1,9 +1,11 @@
-<div class="weekly-weather row justify-content-center col-12">
-    <div class="card col-md-12 col-lg-5">
-        <div class="card-body w-100">
-            <div class="card-title">
-                Friday, January 7th
+<div class="row justify-content-center col-12 m-0">
+    {{#each usersProjects as | Project |}}
+        <div class="card m-3 p-0 col-md-12 col-lg-5">
+            <div class="card-body">
+                <div class="card-title text-center">
+                    {{Project.project_name}}
+                </div>
             </div>
         </div>
-    </div>
+    {{/each}}
 </div>
