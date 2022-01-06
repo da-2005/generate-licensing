@@ -10,9 +10,7 @@ router.get('/projects', withAuth, async (req, res) => {
     try {
         let usersProjects = await Project.findAll({ where: { user_id: req.session.user_id } })
 
-        res.render('projects', {
-            usersProjects
-        })
+        res.render('projects', { usersProjects })
     } catch(err) {
         res.sendStatus(500)
         console.log(err)
