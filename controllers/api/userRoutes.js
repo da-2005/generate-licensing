@@ -1,21 +1,31 @@
 const router = require('express').Router();
+const res = require('express/lib/response');
 const { User } = require('../../models');
+
+
+
+router.get("/login", () => {
+    res.render('login')
+})
+
+router.get('/projects', async (req, res) => {
+  res.render('projects')
+})
 
 router.post('/', async (req, res) => {
     try {
-        console.log("hello")
-      const userData = await User.create(req.body);
-  
-      req.session.save(() => {
-        req.session.user_id = userData.user_id;
-        req.session.logged_in = true;
-  
-        res.status(200).json(userData);
-      });
+        const userData = await User.create(req.body);
+
+        req.session.save(() => {
+            req.session.user_id = userData.user_id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        });
     } catch (err) {
-      res.status(400).json(err);
+        res.status(400).json(err);
     }
-  });
+});
 
 router.post('/login', async (req, res) => {
     try{
@@ -37,7 +47,7 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = userData.user_id;
             req.session.logged_in = true;
 
             res.json({ user: userData, message: 'You are now logged in!'})
