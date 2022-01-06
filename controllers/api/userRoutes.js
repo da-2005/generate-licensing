@@ -1,16 +1,5 @@
 const router = require('express').Router();
-const res = require('express/lib/response');
 const { User } = require('../../models');
-
-
-
-router.get("/login", () => {
-    res.render('login')
-})
-
-router.get('/projects', async (req, res) => {
-  res.render('projects')
-})
 
 router.post('/', async (req, res) => {
     try {
