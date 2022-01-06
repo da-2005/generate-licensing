@@ -32,7 +32,11 @@
             </ul>
             <div class="d-flex navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link rounded-pill custom-link" href="/login">Login</a>
+                  {{#if logged_in}}
+                    <a class="nav-link rounded-pill custom-link" href="/users/projects">Login</a>
+                  {{else}}
+                    <a class="nav-link rounded-pill custom-link "href="/users/login">Login</a>
+                  {{/if}}    
                 </li>
             </div>
           </div>
