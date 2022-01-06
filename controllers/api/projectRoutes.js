@@ -19,8 +19,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     try{
         const projectData = await Project.destroy({
             where: {
-                id: req.params.id,
-                user_id: req.session.user_id
+               project_id: req.params.project_id,
             },
         });
 
@@ -35,9 +34,13 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
-// router.get('/projects/:id', async (req, res) => {
-//     try{
-//         const projectID = await Project.findByPk(req.params.id)
-//     }
-// })
+router.get('/:id', withAuth, async (req, res) => {
+    try{
+        const project = await Project.findByPk(req.params.id)
+
+        res.status(200).json(project);
+    } catch(err) {
+        res.status(500).json(err);
+    }
+})
 module.exports = router;
