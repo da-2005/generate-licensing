@@ -5,8 +5,4 @@ router.get('/', async (req, res) => {
   res.render('homepage');
 });
 
-router.get('/userprojects', async (req, res) => {
-  res.render('userProjects')
-})
-
 module.exports = router;
