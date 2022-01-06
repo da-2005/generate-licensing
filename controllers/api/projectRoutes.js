@@ -34,6 +34,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+
 router.get('/:id', withAuth, async (req, res) => {
     try{
         const project = await Project.findByPk(req.params.id)
