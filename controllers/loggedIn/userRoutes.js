@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const withAuth = require('../../util/auth')
+const withAuth = require('../../util/withAuth')
 const Project = require('../../models/Project')
 
 router.get("/login", (req, res) => {
@@ -12,8 +12,7 @@ router.get('/projects', withAuth, async (req, res) => {
 
         res.render('projects', { usersProjects })
     } catch(err) {
-        res.sendStatus(500)
-        console.log(err)
+        res.sendStatus(500).json(err)
     }   
 })
 

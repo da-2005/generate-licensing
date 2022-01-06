@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const req = require('express/lib/request');
 const { Key } = require('../../models');
-const withAuth = require('../../util/auth')
+const withAuth = require('../../util/withAuth')
 
 router.post('/', withAuth, async (req, res) => {
 
