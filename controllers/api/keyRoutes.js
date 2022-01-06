@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Key } = require('../../models');
+const withAuth = require('../../util/auth')
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newKey = await Key.create(req.body);
 
@@ -14,8 +15,5 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
-
-
-
 
 module.exports = router;
