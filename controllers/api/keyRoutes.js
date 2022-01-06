@@ -3,7 +3,8 @@ const req = require('express/lib/request');
 const { Key } = require('../../models');
 const withAuth = require('../../util/auth')
 
-router.post('/', withAuth, async (req,res) => {
+router.post('/', withAuth, async (req, res) => {
+
     try {
         const newKey = await Key.create({
             ...req.body,
@@ -15,6 +16,7 @@ router.post('/', withAuth, async (req,res) => {
         res.status(400).json(err);
     }
 });
+
 
 router.delete('/:id', withAuth, async (req, res) => {
     try{
@@ -45,6 +47,5 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 })
-
 
 module.exports = router;
