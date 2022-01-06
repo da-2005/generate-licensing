@@ -1,5 +1,12 @@
 const router = require('express').Router();
+const res = require('express/lib/response');
 const { User } = require('../../models');
+
+
+
+router.get("/login", () => {
+    res.render('login')
+})
 
 router.post('/', async (req, res) => {
     try {

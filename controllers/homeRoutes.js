@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/userprojects', async (req, res) => {
-  res.render('userprojects')
+  res.render('userProjects')
 })
 
 module.exports = router;
