@@ -4,6 +4,8 @@ body {
 
 .custom-link {
     background-color: rgb(192, 192, 192);
+    width: 5rem;
+    text-align: center;
 }
 
 .custom-card {
