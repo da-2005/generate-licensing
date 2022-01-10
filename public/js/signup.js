@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/users/projects');
     } else {
-      alert('Failed to signup');
+        window.location.reload()
     }
   }
 };
