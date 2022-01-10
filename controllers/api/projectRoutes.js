@@ -4,6 +4,7 @@ const withAuth = require('../../util/withAuth')
 
 router.post('/', withAuth, async (req,res) => {
     try {
+        console.log(req.body)
         const newProject = await Project.create({
             ...req.body,
             user_id: req.session.user_id,

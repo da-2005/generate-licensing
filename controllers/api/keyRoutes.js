@@ -4,7 +4,6 @@ const { Key } = require('../../models');
 const withAuth = require('../../util/withAuth')
 
 router.post('/', withAuth, async (req, res) => {
-
     try {
         const newKey = await Key.create({
             ...req.body,
@@ -13,7 +12,7 @@ router.post('/', withAuth, async (req, res) => {
 
         res.status(200).json(newKey);
     } catch (err) {
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 

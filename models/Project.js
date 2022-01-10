@@ -20,7 +20,6 @@ Project.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references: {
                 model: 'user',
                 key: 'user_id',
