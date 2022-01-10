@@ -2,7 +2,7 @@ const newFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#project-name').value.trim();
-  console.log(name);
+
     if (name) {
       const response = await fetch(`/api/projects`, {
         method: 'POST',
