@@ -14,8 +14,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
         document.location.replace('/users/projects');
     } else {
-        alert('Failed to log in');
-    }
+            window.location.reload()
+        }
     }
 };
 
