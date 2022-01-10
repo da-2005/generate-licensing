@@ -18,16 +18,22 @@ router.get('/projects', withAuth, async (req, res) => {
     }   
 })
 
-router.get('/keys/:project_id', withAuth, async (req, res) => {
-    let project_id = req.params.project_id
-    if(!project_id) return res.redirect('/users/projects')
+router.get('/keys', withAuth, async (req, res, next) => {
+    let project_id = req.query.project_id
+    if(!project_id) {
+        res.redirect('/users/projects')
+        return next()
+    }
     
     try {
-        let keys = await Key.findAll({ where: project_id })
+        let keys = await Key.findAll({ where: {
+            project_id
+        }})
         keys = keys.map(key => key.get({ plain: true }))
 
         res.render('keys', { keys, logged_in:req.session.logged_in })
     } catch(err) {
+        console.log(err)
         res.sendStatus(500).json(err)
     }
 })
