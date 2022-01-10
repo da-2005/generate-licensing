@@ -8,7 +8,7 @@ class Key extends Model {
 Key.init(
     {
         key: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             primaryKey: true,
         },

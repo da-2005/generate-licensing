@@ -7,11 +7,11 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newKey = await Key.create({
             ...req.body,
-            key: req.session.key,
         });
 
         res.status(200).json(newKey);
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -21,8 +21,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     try{
         const keyData = await Key.destroy({
             where: {
-                id: req.params.key,
-                key: req.session.key
+                key: req.body.key
             },
         });
 
