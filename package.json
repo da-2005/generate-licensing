@@ -6,6 +6,7 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
+    "figlet": "^1.5.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.12.5"
   }
