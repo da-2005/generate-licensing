@@ -3,6 +3,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const path = require('path');
+const figlet = require('figlet');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,18 +33,12 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => {
+        figlet('Now Listening!', (err, data) => {
+            if (err) return console.log('Something went wrong...');
+
+            console.log(data)
+        });
+    });
 });
 
-
-// figlet package
-var figlet = require('figlet');
-
-figlet('Now Listening!!', function(err, data) {
-    if (err) {
-        console.log('Something went wrong...');
-        console.dir(err);
-        return;
-    }
-    console.log(data)
-});
